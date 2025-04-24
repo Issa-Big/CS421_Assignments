@@ -1,4 +1,3 @@
-![Pasted image (14)](https://github.com/user-attachments/assets/8cd865b3-d52b-4ef4-b666-04bce56e00b0)# CS421_Assignments
 Simple API with students and subjects for Software Engineering program - CS421 Assignments
 
 This project is a part of the **Application Deployment and Management (CS421)** course at **University of Dodoma**. It demonstrates the creation and deployment of a simple RESTful API with two endpoints using **Node.js** and **Express.js**.
@@ -180,6 +179,8 @@ http://16.171.238.29/students
 ![Pasted image (19)](https://github.com/user-attachments/assets/f50fa42c-3b48-4184-b2f9-83738b298e7d)
 
 >>> For **/subject**
+http://16.171.238.29/subjects
+
 ![Pasted image (20)](https://github.com/user-attachments/assets/9c4aea23-56b7-4687-b3b5-8db71d7f3c46)
 
 Thank You Sir....!!!
