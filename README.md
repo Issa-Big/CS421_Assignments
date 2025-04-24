@@ -14,11 +14,9 @@ This API exposes two endpoints:
 
 - **GET /students**  
   Returns a list of 10 students with their full names and enrolled programs.
-![Pasted image (2)](https://github.com/user-attachments/assets/9c547923-f675-4d49-8fd7-67088007bd07)
 
 - **GET /subjects**  
   Returns a list of Software Engineering subjects, grouped by academic year (Year 1 to Year 4).
-![Pasted image](https://github.com/user-attachments/assets/9f20e103-2dd8-40bf-9820-69a81e6bd6cd)
 
 
 ---
@@ -53,11 +51,17 @@ You should see after running that command:
 ```
 Server running at http://localhost:3000
 ```
-Now open your browser and test:
+Now open your browser and test localy to see if the code run effectively:
 ```
 http://localhost:3000/students
+```
+![Pasted image (2)](https://github.com/user-attachments/assets/9c547923-f675-4d49-8fd7-67088007bd07)
+
+```
 http://localhost:3000/subjects
 ```
+![Pasted image](https://github.com/user-attachments/assets/9f20e103-2dd8-40bf-9820-69a81e6bd6cd)
+
 
  ### 2.0 Deployment on AWS
 
