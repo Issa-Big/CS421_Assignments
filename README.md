@@ -141,8 +141,20 @@ npm install
 ```
 ![Pasted image (12)](https://github.com/user-attachments/assets/34ad30a2-76b2-4929-b659-319e8e89d19b)
 
+### 2.3 Creating Database on the server
+>>>Using MYSQL database by installing it in the server and start mysql service. 
+![image](https://github.com/user-attachments/assets/06050c1f-5a06-4f50-85d3-8dcf801bb0c1)
 
- ### 2.3.Install PM2 to Keep API Running
+>>>Create tables subjects and students
+![image](https://github.com/user-attachments/assets/62a1fa51-9435-4c4f-ada0-eafb0ef6597f)
+
+>>>Inserting the data on the tables
+![image](https://github.com/user-attachments/assets/ed551145-13cd-4f1b-b7e2-5384bd510aac)
+
+>>> Ok then the data are succesfully inserted
+![image](https://github.com/user-attachments/assets/cac64498-0051-451b-aa26-519c455e142c)
+
+ ### 2.4.Install PM2 to Keep API Running
  
 >>>Then on the server:
 ```
@@ -162,7 +174,7 @@ pm2 save
 ![Pasted image (15)](https://github.com/user-attachments/assets/e93d813c-6eb7-4f1a-9fff-6764d068fdd1)
 ```
 
-### 2.4 Configure Nginx as a Reverse Proxy
+### 2.5 Configure Nginx as a Reverse Proxy
 
 >>>Open the nginx default file and replace the existing location / block with:
 ![Pasted image (17)](https://github.com/user-attachments/assets/c8c59c1e-c68d-4ebe-89b6-b09fe54e187a)
@@ -174,7 +186,7 @@ sudo systemctl restart nginx
 ```
 ![Pasted image (18)](https://github.com/user-attachments/assets/9f71bc3d-11ef-4391-9c56-dee29634479b)
 
-### 2.5 Test the API
+### 2.6 Test the API
 Locate the url to the browser to see if the API works 
 
 >>> For **/student**
