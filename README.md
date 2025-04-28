@@ -337,5 +337,19 @@ sudo systemctl start cron
 ```
 ![image](https://github.com/user-attachments/assets/c74dd620-051d-485c-85db-330760233b3d)
 
+### Important Reminder
+
+If you get a "permission denied" error when scripts run manually:
+
+    Check the script permissions:
+```
+chmod +x /home/ubuntu/CS421_API/bash_scripts/*.sh
+```
+Or if a log file cannot be written:
+```
+sudo chmod 666 /var/log/*.log
+```
+
+
 ### Deployment
-The API has been deployed on an AWS Ubuntu server. Access it at: [http://13.61.9.123](http://13.61.9.123)
+The API has been deployed on an AWS Ubuntu server. Access it at: [http://16.171.238.29/subjects] [http://16.171.238.29/students]
