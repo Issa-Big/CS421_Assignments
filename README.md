@@ -268,6 +268,7 @@ Thank You Sir....!!!
 >>>After ttest manually we can see the result of the script 
 ![image](https://github.com/user-attachments/assets/deb9656a-046b-4c0d-9aed-ea1643d3c911)
 
+
 ### B.backup_api.sh
 ✅ Create /home/ubuntu/backups directory if missing	
 ✅Compress the API project folder (CS421-API) into a .tar.gz	
@@ -280,7 +281,6 @@ After test manually we can see the result of the script
 ![image](https://github.com/user-attachments/assets/271d722b-a29d-410c-917b-5d49add7f407)
 
 >>>Check the logs in ``` cat /var/log/backup.log ```
-![image](https://github.com/user-attachments/assets/58f4f2a6-780c-4aa0-907e-1b586ed64346)
 
 ### C.update_server.sh
 
@@ -295,3 +295,47 @@ This script will:
 
 ✅Handle errors safely (e.g., if Git pull fails, don't restart services)
 
+Through testing manually we can see the scripts works perfectly
+![image](https://github.com/user-attachments/assets/806673d6-b1cf-4cf9-80ec-5b41111c2768)
+
+We can see changes were successfully pulled to the git repo
+![image](https://github.com/user-attachments/assets/c077010a-5f5a-4485-ac94-266cb597867e)
+
+
+### 3.2 Setup & Usage  
+1. Copy scripts to your server under `~/bash_scripts`.  
+2. `chmod +x bash_scripts/*.sh` 
+![image](https://github.com/user-attachments/assets/871a88fb-1283-465a-8de6-267f3c827a89)
+
+### Dependencies: `curl`, `tar`, `mysql_dump` (MYSQL client), `git`, `systemctl` .
+
+### Scheduling (cron)
+
+Check if Cron is Installed
+```
+sudo systemctl status cron
+```
+![image](https://github.com/user-attachments/assets/4b71f79c-4efe-48af-afb9-c1bf77f4af08)
+
+Once it's installed, you can enable and start it
+```
+sudo systemctl enable cron
+sudo systemctl start cron
+```
+![image](https://github.com/user-attachments/assets/442b19fe-c98d-45d6-8f3b-0f2538eb6240)
+
+
+```cron
+# Run health_check every 6 hours
+0 */6 * * * /home/ubuntu/CS421_API/bash_scripts/health_check.sh >> /var/log/server_health.log 2>&1
+
+# Run backup_api daily at 2 AM
+0 2 * * * /home/ubuntu/CS421_API/bash_scripts/backup_api.sh >> /var/log/backup.log 2>&1
+
+# Run update_server every 3 days at 3 AM
+0 3 */3 * * /home/ubuntu/CS421_API/bash_scripts/update_server.sh >> /var/log/update.log 2>&1
+```
+![image](https://github.com/user-attachments/assets/c74dd620-051d-485c-85db-330760233b3d)
+
+### Deployment
+The API has been deployed on an AWS Ubuntu server. Access it at: [http://13.61.9.123](http://13.61.9.123)
