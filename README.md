@@ -200,3 +200,98 @@ http://16.171.238.29/subjects
 ![Pasted image (20)](https://github.com/user-attachments/assets/9c4aea23-56b7-4687-b3b5-8db71d7f3c46)
 
 Thank You Sir....!!!
+###########################################################################################################################
+
+
+##############################################  ASSIGNNMENT 2 ################################################################
+
+### 3.0 Backup Schemes
+
+**A.Full Backup**: A complete copy of all data every time a backup is made. The system saves every file and database at once, regardless of whether it has changed or not.
+
+  >>>Advantages:
+
+  Simplified restore process.
+
+  All data is backed up in a single operation.
+
+ >>>Disadvantages:
+
+  Requires more time and storage space.
+
+  Can cause heavy load during backup.
+
+  **B. Incremental Backup** :  Only backs up data that has changed since the last backup (whether full or incremental). After the first full backup, each new backup only saves new or modified files.
+
+  >>>Advantages:
+
+  aves time and storage.
+
+  Efficient for frequent backups.
+
+  >>>Disadvantages:
+
+  Slower recovery, because multiple incremental backups must be restored in sequence.
+
+  Backup chain becomes complex.
+
+**C. Differential Backup :** Backs up all changes made since the last full backup. After a full backup, each differential backup keeps growing until the next full backup is made.
+ 
+>>> Advantages:
+
+  Faster restore than incremental backup (only full + last differential needed).
+
+  Easier backup management compared to incremental.
+
+>>>Disadvantages:
+
+  Larger backup sizes than incremental.
+
+  Time for backup increases as more changes accumulate.
+
+  ### 3.1 Bash Script Development.
+  All the script i need to Copy scripts to your server under `~/CS421_API/bash_scripts`.  
+  
+**A.health_check.sh** 
+
+  >>>What This Script Does:
+  ✅ Logs CPU, memory, and disk usage
+
+  ✅ Warns if disk space is above 90%
+
+  ✅ Checks if Nginx is running
+
+  ✅ Sends curl request to /students and /subjects
+
+  ✅ Logs everything to /var/log/server_health.log with timestamps
+  
+>>>After ttest manually we can see the result of the script 
+![image](https://github.com/user-attachments/assets/deb9656a-046b-4c0d-9aed-ea1643d3c911)
+
+### B.backup_api.sh
+✅ Create /home/ubuntu/backups directory if missing	
+✅Compress the API project folder (CS421-API) into a .tar.gz	
+✅Export your MySQL database into a .sql file	
+✅ Delete any backup files older than 7 days	
+✅Log every step into /var/log/backup.log
+
+After test manually we can see the result of the script
+>>>You can  see files like:
+![image](https://github.com/user-attachments/assets/271d722b-a29d-410c-917b-5d49add7f407)
+
+>>>Check the logs in ``` cat /var/log/backup.log ```
+![image](https://github.com/user-attachments/assets/58f4f2a6-780c-4aa0-907e-1b586ed64346)
+
+### C.update_server.sh
+
+This script will:
+✅Update Ubuntu packages (apt update && apt upgrade -y)
+
+✅Pull latest changes from your GitHub repository (Assignment 1 project)
+
+✅Restart Nginx to apply any API changes
+
+✅Log everything into /var/log/update.log
+
+✅Handle errors safely (e.g., if Git pull fails, don't restart services)
+
